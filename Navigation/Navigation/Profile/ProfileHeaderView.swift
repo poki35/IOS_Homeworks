@@ -9,7 +9,7 @@ import UIKit
 
 class ProfileHeaderView: UIView {
     
-    let button: UIButton = {
+   lazy var button: UIButton = {
         let button = UIButton()
         button.backgroundColor = .systemBlue
         button.setTitle("Показать статус", for: .normal)
@@ -23,7 +23,7 @@ class ProfileHeaderView: UIView {
         return button
     }()
     
-    let name: UILabel = {
+   lazy var name: UILabel = {
         let name = UILabel()
         name.text = "Пономаренко Кирилл"
         name.font = .systemFont(ofSize: 18, weight: .bold)
@@ -31,7 +31,7 @@ class ProfileHeaderView: UIView {
         return name
     }()
     
-    let statusField: UITextField = {
+   lazy var statusField: UITextField = {
         let statusField = UITextField()
         statusField.backgroundColor = .white
         statusField.font = .systemFont(ofSize: 15, weight: .regular)
@@ -44,7 +44,7 @@ class ProfileHeaderView: UIView {
         return statusField
     }()
     
-    let status: UILabel = {
+   lazy var status: UILabel = {
         let status = UILabel()
         status.text = "Напишите что-нибудь..."
         status.font = UIFont.systemFont(ofSize: 14, weight: .regular)
@@ -52,7 +52,7 @@ class ProfileHeaderView: UIView {
         return status
     }()
     
-    let photo: UIImageView = {
+   lazy var photo: UIImageView = {
         let photo = UIImageView()
         photo.image = UIImage(named: "322")
         photo.layer.borderWidth = 3
