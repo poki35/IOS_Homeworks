@@ -9,7 +9,7 @@ import UIKit
 
 class ProfileHeaderView: UIView {
     
-    let button: UIButton = {
+   lazy var button: UIButton = {
         let button = UIButton()
         button.backgroundColor = .systemBlue
         button.setTitle("Показать статус", for: .normal)
@@ -23,7 +23,7 @@ class ProfileHeaderView: UIView {
         return button
     }()
     
-    let name: UILabel = {
+   lazy var name: UILabel = {
         let name = UILabel()
         name.text = "Пономаренко Кирилл"
         name.font = .systemFont(ofSize: 18, weight: .bold)
@@ -31,7 +31,7 @@ class ProfileHeaderView: UIView {
         return name
     }()
     
-    let statusField: UITextField = {
+   lazy var statusField: UITextField = {
         let statusField = UITextField()
         statusField.backgroundColor = .white
         statusField.font = .systemFont(ofSize: 15, weight: .regular)
@@ -44,7 +44,7 @@ class ProfileHeaderView: UIView {
         return statusField
     }()
     
-    let status: UILabel = {
+   lazy var status: UILabel = {
         let status = UILabel()
         status.text = "Напишите что-нибудь..."
         status.font = UIFont.systemFont(ofSize: 14, weight: .regular)
@@ -52,7 +52,7 @@ class ProfileHeaderView: UIView {
         return status
     }()
     
-    let photo: UIImageView = {
+   lazy var photo: UIImageView = {
         let photo = UIImageView()
         photo.image = UIImage(named: "322")
         photo.layer.borderWidth = 3
@@ -70,5 +70,45 @@ class ProfileHeaderView: UIView {
     @objc func buttonPressed () {
         status.text = statusText
     }
+    
+    private func addSubview() {
+        
+        addSubview(button)
+        addSubview(name)
+        addSubview(statusField)
+        addSubview(status)
+        addSubview(photo)
+        
+    }
+    
+    func setConstraints() {
+        
+        photo.translatesAutoresizingMaskIntoConstraints = false
+                NSLayoutConstraint.activate([photo.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+                                             photo.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
+                                             photo.widthAnchor.constraint(equalToConstant: 100),
+                                             photo.heightAnchor.constraint(equalToConstant: 100)])
+                
+                name.translatesAutoresizingMaskIntoConstraints = false
+                NSLayoutConstraint.activate([name.leadingAnchor.constraint(equalTo: self.photo.trailingAnchor, constant: 16),
+                                             name.topAnchor.constraint(equalTo: self.topAnchor, constant: 32),
+                                             name.heightAnchor.constraint(equalToConstant: 18)])
+                
+                status.translatesAutoresizingMaskIntoConstraints = false
+                NSLayoutConstraint.activate([status.leadingAnchor.constraint(equalTo: self.photo.trailingAnchor, constant: 16),
+                                             status.topAnchor.constraint(equalTo: self.photo.bottomAnchor, constant: -36)])
+                
+                statusField.translatesAutoresizingMaskIntoConstraints = false
+                NSLayoutConstraint.activate([statusField.leadingAnchor.constraint(equalTo: self.status.leadingAnchor),
+                                             statusField.topAnchor.constraint(equalTo: self.status.bottomAnchor, constant: 10),
+                                             statusField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+                                             statusField.heightAnchor.constraint(equalToConstant: 40)])
+                
+                button.translatesAutoresizingMaskIntoConstraints = false
+                NSLayoutConstraint.activate([button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+                                             button.topAnchor.constraint(equalTo: self.statusField.bottomAnchor, constant: 10),
+                                             button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+                                             button.heightAnchor.constraint(equalToConstant: 50)])
+            }
     
 }
