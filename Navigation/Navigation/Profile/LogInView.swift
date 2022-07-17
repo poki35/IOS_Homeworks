@@ -24,11 +24,6 @@ class LogInView: UIView {
         backgroundForFields.layer.borderWidth = 0.5
         backgroundForFields.layer.borderColor = UIColor.lightGray.cgColor
         backgroundForFields.layer.cornerRadius = 10
-        
-        let separatingLine = UIView()
-        separatingLine.backgroundColor = .lightGray
-        separatingLine.translatesAutoresizingMaskIntoConstraints = false
-        backgroundForFields.addSubview(separatingLine)
         return backgroundForFields
     }()
     
