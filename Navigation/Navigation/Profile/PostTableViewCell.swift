@@ -74,50 +74,35 @@ class PostTableViewCell: UITableViewCell {
     
     private func setUp() {
         
-        contentView.addSubview(inCellView)
+        contentView.addSubviews(inCellView,authorLabel,imagePostView, descriptionLabel, likesLabel,viewsLabel)
+        
         NSLayoutConstraint.activate([
             inCellView.topAnchor.constraint(equalTo: contentView.topAnchor),
             inCellView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             inCellView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            inCellView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
-        ])
-        
-        contentView.addSubview(authorLabel)
-        NSLayoutConstraint.activate([
+            inCellView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            
             authorLabel.topAnchor.constraint(equalTo: inCellView.topAnchor, constant: 16),
             authorLabel.leadingAnchor.constraint(equalTo: inCellView.leadingAnchor, constant: 16),
             authorLabel.trailingAnchor.constraint(equalTo: inCellView.trailingAnchor, constant: -16),
-        ])
-        
-        contentView.addSubview(imagePostView)
-        NSLayoutConstraint.activate([
+            
             imagePostView.topAnchor.constraint(equalTo: authorLabel.bottomAnchor, constant: 12),
             imagePostView.leadingAnchor.constraint(equalTo: inCellView.leadingAnchor),
             imagePostView.trailingAnchor.constraint(equalTo: inCellView.trailingAnchor),
             imagePostView.heightAnchor.constraint(equalTo: inCellView.widthAnchor),
-            imagePostView.widthAnchor.constraint(equalTo: inCellView.widthAnchor)
-        ])
-        
-        contentView.addSubview(descriptionLabel)
-        NSLayoutConstraint.activate([
+            imagePostView.widthAnchor.constraint(equalTo: inCellView.widthAnchor),
+            
             descriptionLabel.topAnchor.constraint(equalTo: imagePostView.bottomAnchor, constant: 16),
             descriptionLabel.leadingAnchor.constraint(equalTo: inCellView.leadingAnchor, constant: 16),
-            descriptionLabel.trailingAnchor.constraint(equalTo: inCellView.trailingAnchor, constant: -16)
-        ])
-        
-        contentView.addSubview(likesLabel)
-        NSLayoutConstraint.activate([
+            descriptionLabel.trailingAnchor.constraint(equalTo: inCellView.trailingAnchor, constant: -16),
+            
             likesLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 16),
             likesLabel.leadingAnchor.constraint(equalTo: inCellView.leadingAnchor, constant: 16),
-            likesLabel.bottomAnchor.constraint(equalTo: inCellView.bottomAnchor, constant: -16)
+            likesLabel.bottomAnchor.constraint(equalTo: inCellView.bottomAnchor, constant: -16),
             
-        ])
-        
-        contentView.addSubview(viewsLabel)
-        NSLayoutConstraint.activate([
             viewsLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 16),
             viewsLabel.trailingAnchor.constraint(equalTo: inCellView.trailingAnchor, constant: -16),
-            viewsLabel.bottomAnchor.constraint(equalTo: inCellView.bottomAnchor, constant: -16)
-        ])
+            viewsLabel.bottomAnchor.constraint(equalTo: inCellView.bottomAnchor, constant: -16)])
+        
     }
 }

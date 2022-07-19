@@ -66,18 +66,16 @@ class LogInView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        layout()
+        setUp()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func layout() {
+    private func setUp() {
         
-        for temp in [logo, backgroundForFields, numberField, passwordField, logInButton] {
-            addSubview(temp)
-        }
+        addSubviews(logo, backgroundForFields, numberField, logInButton, passwordField)
         
         NSLayoutConstraint.activate([logo.widthAnchor.constraint(equalToConstant: 100),
                                      logo.heightAnchor.constraint(equalToConstant: 100),
@@ -113,6 +111,13 @@ extension LogInView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         endEditing(true)
         return true
+    }
+    
+}
+
+public extension UIView {
+    func addSubviews(_ subviews: UIView...) {
+        subviews.forEach { addSubview($0) }
     }
     
 }

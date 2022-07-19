@@ -22,7 +22,7 @@ class LogInViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        layout()
+        setUp()
         
         contentView.logInButton.addTarget(self, action: #selector(pushInProfile), for: .touchUpInside)
     }
@@ -55,7 +55,7 @@ class LogInViewController: UIViewController {
         scrollView.verticalScrollIndicatorInsets = .zero
     }
     
-    private func layout() {
+    private func setUp() {
         
         view.addSubview(scrollView)
         contentView.translatesAutoresizingMaskIntoConstraints = false

@@ -56,9 +56,6 @@ extension ProfileViewController: UITableViewDelegate {
         return header
     }
     
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        180
-    }
 }
 
 extension ProfileViewController: UITableViewDataSource {

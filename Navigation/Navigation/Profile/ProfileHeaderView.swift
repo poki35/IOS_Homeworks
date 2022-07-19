@@ -36,6 +36,13 @@ class ProfileHeaderView: UIView {
         return name
     }()
     
+    let separatingLine: UIView = {
+        let separatingLine = UIView()
+        separatingLine.backgroundColor = .lightGray
+        separatingLine.translatesAutoresizingMaskIntoConstraints = false
+        return separatingLine
+    }()
+    
     lazy var statusField: UITextField = {
         let statusField = UITextField()
         statusField.backgroundColor = .white
@@ -70,6 +77,9 @@ class ProfileHeaderView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
+        backgroundColor = .lightGray
+        
         setUp()
     }
     
@@ -87,39 +97,41 @@ class ProfileHeaderView: UIView {
     
     private func setUp() {
         
-        backgroundColor = .lightGray
-        
-        addSubview(button)
-        addSubview(name)
-        addSubview(statusField)
-        addSubview(status)
-        addSubview(photo)
+        addSubviews(button, name, statusField, status, photo, separatingLine)
         
         photo.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([photo.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
+        name.translatesAutoresizingMaskIntoConstraints = false
+        status.translatesAutoresizingMaskIntoConstraints = false
+        statusField.translatesAutoresizingMaskIntoConstraints = false
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([separatingLine.bottomAnchor.constraint(equalTo: bottomAnchor),
+                                     separatingLine.leadingAnchor.constraint(equalTo: leadingAnchor),
+                                     separatingLine.trailingAnchor.constraint(equalTo: trailingAnchor),
+                                     separatingLine.heightAnchor.constraint(equalToConstant: 1),
+                                     
+                                     photo.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
                                      photo.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
                                      photo.widthAnchor.constraint(equalToConstant: Constants.avatarSize),
-                                     photo.heightAnchor.constraint(equalToConstant: Constants.avatarSize)])
-        
-        name.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([name.leadingAnchor.constraint(equalTo: self.photo.trailingAnchor, constant: 16),
-                                     name.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 27)])
-        
-        status.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([status.leadingAnchor.constraint(equalTo: self.photo.trailingAnchor, constant: 16),
-                                     status.bottomAnchor.constraint(equalTo: self.photo.bottomAnchor, constant: -18)])
-        
-        statusField.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([statusField.leadingAnchor.constraint(equalTo: self.status.leadingAnchor),
+                                     photo.heightAnchor.constraint(equalToConstant: Constants.avatarSize),
+                                     
+                                     name.leadingAnchor.constraint(equalTo: self.photo.trailingAnchor, constant: 16),
+                                     name.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 27),
+                                     
+                                     status.leadingAnchor.constraint(equalTo: self.photo.trailingAnchor, constant: 16),
+                                     status.bottomAnchor.constraint(equalTo: self.photo.bottomAnchor, constant: -18),
+                                     
+                                     statusField.leadingAnchor.constraint(equalTo: self.status.leadingAnchor),
                                      statusField.topAnchor.constraint(equalTo: self.status.bottomAnchor, constant: 10),
                                      statusField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-                                     statusField.heightAnchor.constraint(equalToConstant: 50)])
-        
-        button.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+                                     statusField.heightAnchor.constraint(equalToConstant: 50),
+                                     
+                                     button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
                                      button.topAnchor.constraint(equalTo: self.statusField.bottomAnchor, constant: 16),
                                      button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-                                     button.heightAnchor.constraint(equalToConstant: 50)])
+                                     button.heightAnchor.constraint(equalToConstant: 50),
+                                     button.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10)])
+        
     }
     
 }
