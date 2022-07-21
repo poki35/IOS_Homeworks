@@ -9,20 +9,20 @@ import UIKit
 
 class PostViewController: UIViewController {
     
-  var titlePost: String = "Мои посты"
+    var titlePost: String = "Мои посты"
     
-  override func viewDidLoad() {
-    super.viewDidLoad()
-         self.view.backgroundColor = .systemGray5
-         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(tap))
-         self.navigationItem.title = titlePost
-  }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.view.backgroundColor = .systemGray5
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(tap))
+        self.navigationItem.title = titlePost
+    }
     
-      @objc func tap() {
+    @objc func tap() {
         let vcContr = InfoViewController()
-            vcContr.modalPresentationStyle = .automatic
+        vcContr.modalPresentationStyle = .automatic
         self.present(vcContr, animated: true)
-  }
+    }
     
 }
 
