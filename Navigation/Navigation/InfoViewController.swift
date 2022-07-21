@@ -12,6 +12,7 @@ class InfoViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBrown
         buttonTap()
+        
     }
     
     func buttonTap () {

@@ -27,6 +27,13 @@ class LogInView: UIView {
         return backgroundForFields
     }()
     
+    let separatingLine: UIView = {
+        let separatingLine = UIView()
+        separatingLine.backgroundColor = .lightGray
+        separatingLine.translatesAutoresizingMaskIntoConstraints = false
+        return separatingLine
+    }()
+    
     lazy var numberField: UITextField = {
         let numberField = UITextField()
         numberField.translatesAutoresizingMaskIntoConstraints = false
@@ -75,12 +82,17 @@ class LogInView: UIView {
     
     private func setUp() {
         
-        addSubviews(logo, backgroundForFields, numberField, logInButton, passwordField)
+        addSubviews(logo, backgroundForFields, numberField, logInButton, passwordField, separatingLine)
         
         NSLayoutConstraint.activate([logo.widthAnchor.constraint(equalToConstant: 100),
                                      logo.heightAnchor.constraint(equalToConstant: 100),
                                      logo.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 120),
                                      logo.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+                                     
+                                     separatingLine.leadingAnchor.constraint(equalTo: backgroundForFields.leadingAnchor),
+                                     separatingLine.trailingAnchor.constraint(equalTo: backgroundForFields.trailingAnchor),
+                                     separatingLine.heightAnchor.constraint(equalToConstant: 1),
+                                     separatingLine.topAnchor.constraint(equalTo: numberField.bottomAnchor),
                                      
                                      backgroundForFields.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
                                      backgroundForFields.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),

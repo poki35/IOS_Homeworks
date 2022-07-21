@@ -36,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow()
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
+        window?.overrideUserInterfaceStyle = .light
         
         return true
     }
