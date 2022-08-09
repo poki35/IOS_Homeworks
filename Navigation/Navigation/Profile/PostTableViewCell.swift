@@ -8,6 +8,7 @@
 
 import UIKit
 import StorageService
+import iOSIntPackage
 
 class PostTableViewCell: UITableViewCell {
     
@@ -66,6 +67,10 @@ class PostTableViewCell: UITableViewCell {
     }
     
     func setupCell(post: Post) {
+        let imageProcessor = ImageProcessor()
+        let image = imagePostView.image
+        imageProcessor.processImage(sourceImage: image!, filter: .colorInvert, completion: { _ in imagePostView.image = image })
+        
         imagePostView.image = UIImage(named: "\(post.image)")
         authorLabel.text = post.author
         descriptionLabel.text = post.description

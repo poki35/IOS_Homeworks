@@ -8,6 +8,7 @@
 
 import UIKit
 import StorageService
+import SnapKit
 
 class ProfileViewController: UIViewController {
     
@@ -47,6 +48,12 @@ class ProfileViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
+        tableView.snp.makeConstraints { maker in
+            maker.left.equalToSuperview()
+            maker.right.equalToSuperview()
+            maker.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            maker.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+        }
         
     }
     
