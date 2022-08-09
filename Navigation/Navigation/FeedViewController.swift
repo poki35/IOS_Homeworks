@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import StorageService
 
 class FeedViewController: UIViewController {
     
