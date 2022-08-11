@@ -24,7 +24,6 @@
 		A6E9F2DC2836E0DE007BBFA0 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E9F2DB2836E0DE007BBFA0 /* FeedViewController.swift */; };
 		A6E9F2DE2836E122007BBFA0 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E9F2DD2836E122007BBFA0 /* PostViewController.swift */; };
 		A6E9F2E02836E157007BBFA0 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E9F2DF2836E157007BBFA0 /* InfoViewController.swift */; };
-		F83C440CE79086628C7188CE /* Pods_Navigation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFC9C8FDB8B4921E15E08AE8 /* Pods_Navigation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,7 +69,6 @@
 		A6E9F2DD2836E122007BBFA0 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		A6E9F2DF2836E157007BBFA0 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		A6E9F2E12836E17E007BBFA0 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		BFC9C8FDB8B4921E15E08AE8 /* Pods_Navigation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Navigation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0E0D35C822D47241807BB4F /* Pods-Navigation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Navigation.debug.xcconfig"; path = "Target Support Files/Pods-Navigation/Pods-Navigation.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -88,7 +86,6 @@
 			files = (
 				A6BF896E28A2636D0099BCC3 /* iOSIntPackage in Frameworks */,
 				A6BF896528A24AB30099BCC3 /* StorageService.framework in Frameworks */,
-				F83C440CE79086628C7188CE /* Pods_Navigation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,7 +95,6 @@
 		173D5B99E7AB119702E627FA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BFC9C8FDB8B4921E15E08AE8 /* Pods_Navigation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

@@ -40,7 +40,6 @@ class ProfileHeaderView: UIView {
     let separatingLine: UIView = {
         let separatingLine = UIView()
         separatingLine.backgroundColor = .lightGray
-        separatingLine.translatesAutoresizingMaskIntoConstraints = false
         return separatingLine
     }()
     
@@ -105,6 +104,7 @@ class ProfileHeaderView: UIView {
         status.translatesAutoresizingMaskIntoConstraints = false
         statusField.translatesAutoresizingMaskIntoConstraints = false
         button.translatesAutoresizingMaskIntoConstraints = false
+        separatingLine.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([separatingLine.bottomAnchor.constraint(equalTo: bottomAnchor),
                                      separatingLine.leadingAnchor.constraint(equalTo: leadingAnchor),

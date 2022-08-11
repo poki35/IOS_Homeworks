@@ -14,13 +14,11 @@ class PostTableViewCell: UITableViewCell {
     
     private let inCellView: UIView = {
         let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     private let imagePostView: UIImageView = {
         let view = UIImageView()
-        view.translatesAutoresizingMaskIntoConstraints = false
         view.contentMode = .scaleAspectFit
         view.backgroundColor = .black
         return view
@@ -28,7 +26,6 @@ class PostTableViewCell: UITableViewCell {
     
     private let authorLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.numberOfLines = 2
         return label
@@ -36,7 +33,6 @@ class PostTableViewCell: UITableViewCell {
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 0
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .systemGray
@@ -45,14 +41,12 @@ class PostTableViewCell: UITableViewCell {
     
     private let likesLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 16)
         return label
     }()
     
     private let viewsLabel: UILabel = {
         let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 16)
         return label
     }()
@@ -67,20 +61,34 @@ class PostTableViewCell: UITableViewCell {
     }
     
     func setupCell(post: Post) {
-        let imageProcessor = ImageProcessor()
-        let image = imagePostView.image
-        imageProcessor.processImage(sourceImage: image!, filter: .colorInvert, completion: { _ in imagePostView.image = image })
-        
         imagePostView.image = UIImage(named: "\(post.image)")
         authorLabel.text = post.author
         descriptionLabel.text = post.description
+        imagePostView.image = imageFilter(imagePostView.image!)
         likesLabel.text = "Likes: \(post.likes)"
         viewsLabel.text = "Views: \(post.views)"
+    }
+    
+    func imageFilter(_ sourceImage: UIImage) -> UIImage {
+        let imageProcessor = ImageProcessor()
+        var image = UIImage()
+        
+        imageProcessor.processImage(sourceImage: sourceImage, filter: .posterize, completion: { filteredImage in
+            image = filteredImage ?? sourceImage
+        })
+        return image
     }
     
     private func setUp() {
         
         contentView.addSubviews(inCellView,authorLabel,imagePostView, descriptionLabel, likesLabel,viewsLabel)
+        
+        inCellView.translatesAutoresizingMaskIntoConstraints = false
+        authorLabel.translatesAutoresizingMaskIntoConstraints = false
+        imagePostView.translatesAutoresizingMaskIntoConstraints = false
+        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
+        likesLabel.translatesAutoresizingMaskIntoConstraints = false
+        viewsLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             inCellView.topAnchor.constraint(equalTo: contentView.topAnchor),
