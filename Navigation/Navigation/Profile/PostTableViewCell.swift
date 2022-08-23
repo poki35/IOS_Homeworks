@@ -69,6 +69,7 @@ class PostTableViewCell: UITableViewCell {
         viewsLabel.text = "Views: \(post.views)"
     }
     
+    
     func imageFilter(_ sourceImage: UIImage) -> UIImage {
         let imageProcessor = ImageProcessor()
         var image = UIImage()

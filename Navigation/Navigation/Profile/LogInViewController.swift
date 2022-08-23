@@ -10,6 +10,8 @@ import UIKit
 
 class LogInViewController: UIViewController {
     
+    let userService = CurrentUserService()
+    
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         return scrollView
@@ -75,11 +77,19 @@ class LogInViewController: UIViewController {
         
     }
     
-    @objc func pushInProfile() {
+    @objc private func pushInProfile() {
         
-        let profileViewController = ProfileViewController()
-        navigationController?.pushViewController(profileViewController, animated: true)
-        
+#if DEBUG
+        let userService = TestUserService()
+#else
+        let userService = CurrentUserService()
+#endif
+        let profileViewController = ProfileViewController(userService: userService, login: contentView.numberField.text!)
+        if contentView.numberField.text == userService.user.fullName {
+            self.navigationController?.pushViewController(profileViewController, animated: true)
+        } else {
+            print("Wrong username")
+        }
     }
     
 }

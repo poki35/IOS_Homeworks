@@ -12,6 +12,19 @@ import SnapKit
 
 class ProfileViewController: UIViewController {
     
+    var userService: UserService
+    var login: String
+    
+    init(userService: UserService, login: String) {
+        self.userService = userService
+        self.login = login
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
