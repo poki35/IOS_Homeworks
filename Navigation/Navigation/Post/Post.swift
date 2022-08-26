@@ -7,15 +7,15 @@
 
 import UIKit
 
-struct Post {
+public struct Post {
     
-    var author: String
-    var description: String
-    var image: String
-    var views: Int
-    var likes: Int
+    public var author: String
+    public var description: String
+    public var image: String
+    public var views: Int
+    public var likes: Int
     
-    static func newPost() -> [Post] {
+    public static func newPost() -> [Post] {
         
         var post = [Post]()
         

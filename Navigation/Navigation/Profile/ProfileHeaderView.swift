@@ -7,8 +7,11 @@
 
 
 import UIKit
+import StorageService
 
 class ProfileHeaderView: UIView {
+    
+    let userService = CurrentUserService()
     
     enum Constants {
         static let avatarSize: CGFloat = 100
@@ -30,7 +33,7 @@ class ProfileHeaderView: UIView {
     
     lazy var name: UILabel = {
         let name = UILabel()
-        name.text = "Пономаренко Кирилл"
+        name.text = userService.user.fullName
         name.font = .systemFont(ofSize: 18, weight: .bold)
         name.textColor = .black
         return name
@@ -39,7 +42,6 @@ class ProfileHeaderView: UIView {
     let separatingLine: UIView = {
         let separatingLine = UIView()
         separatingLine.backgroundColor = .lightGray
-        separatingLine.translatesAutoresizingMaskIntoConstraints = false
         return separatingLine
     }()
     
@@ -57,7 +59,7 @@ class ProfileHeaderView: UIView {
     
     lazy var status: UILabel = {
         let status = UILabel()
-        status.text = "Напишите что-нибудь…"
+        status.text = userService.user.status
         status.font = UIFont.systemFont(ofSize: 14, weight: .regular)
         status.textColor = .gray
         return status
@@ -65,7 +67,7 @@ class ProfileHeaderView: UIView {
     
     lazy var photo: UIImageView = {
         let photo = UIImageView()
-        photo.image = UIImage(named: "322")
+        photo.image = userService.user.avatar
         photo.layer.borderWidth = 3
         photo.layer.borderColor = UIColor.white.cgColor
         photo.clipsToBounds = true
@@ -104,6 +106,7 @@ class ProfileHeaderView: UIView {
         status.translatesAutoresizingMaskIntoConstraints = false
         statusField.translatesAutoresizingMaskIntoConstraints = false
         button.translatesAutoresizingMaskIntoConstraints = false
+        separatingLine.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([separatingLine.bottomAnchor.constraint(equalTo: bottomAnchor),
                                      separatingLine.leadingAnchor.constraint(equalTo: leadingAnchor),

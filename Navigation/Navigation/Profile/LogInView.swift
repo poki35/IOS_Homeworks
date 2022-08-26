@@ -13,14 +13,12 @@ class LogInView: UIView {
     let logo: UIImageView = {
         let logo = UIImageView()
         logo.image = UIImage(named: "logo")
-        logo.translatesAutoresizingMaskIntoConstraints = false
         return logo
     }()
     
     let backgroundForFields: UIView = {
         let backgroundForFields = UIView()
         backgroundForFields.backgroundColor = .systemGray6
-        backgroundForFields.translatesAutoresizingMaskIntoConstraints = false
         backgroundForFields.layer.borderWidth = 0.5
         backgroundForFields.layer.borderColor = UIColor.lightGray.cgColor
         backgroundForFields.layer.cornerRadius = 10
@@ -30,13 +28,11 @@ class LogInView: UIView {
     let separatingLine: UIView = {
         let separatingLine = UIView()
         separatingLine.backgroundColor = .lightGray
-        separatingLine.translatesAutoresizingMaskIntoConstraints = false
         return separatingLine
     }()
     
     lazy var numberField: UITextField = {
         let numberField = UITextField()
-        numberField.translatesAutoresizingMaskIntoConstraints = false
         numberField.textAlignment = .left
         numberField.placeholder = "Email or phone"
         numberField.font = .systemFont(ofSize: 16, weight: .regular)
@@ -47,7 +43,6 @@ class LogInView: UIView {
     
     lazy var passwordField: UITextField = {
         let passwordField = UITextField()
-        passwordField.translatesAutoresizingMaskIntoConstraints = false
         passwordField.textAlignment = .left
         passwordField.placeholder = "Password"
         passwordField.font = .systemFont(ofSize: 16, weight: .regular)
@@ -59,7 +54,6 @@ class LogInView: UIView {
     
     let logInButton: UIButton = {
         let logInButton = UIButton()
-        logInButton.translatesAutoresizingMaskIntoConstraints = false
         if let img = UIImage(named: "blue_pixel") {
             logInButton.backgroundColor = UIColor(patternImage: img)
         } else {
@@ -83,6 +77,13 @@ class LogInView: UIView {
     private func setUp() {
         
         addSubviews(logo, backgroundForFields, numberField, logInButton, passwordField, separatingLine)
+        
+        logo.translatesAutoresizingMaskIntoConstraints = false
+        separatingLine.translatesAutoresizingMaskIntoConstraints = false
+        backgroundForFields.translatesAutoresizingMaskIntoConstraints = false
+        numberField.translatesAutoresizingMaskIntoConstraints = false
+        passwordField.translatesAutoresizingMaskIntoConstraints = false
+        logInButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([logo.widthAnchor.constraint(equalToConstant: 100),
                                      logo.heightAnchor.constraint(equalToConstant: 100),

@@ -10,13 +10,15 @@ import UIKit
 
 class LogInViewController: UIViewController {
     
+    weak var delegate: LoginViewControllerDelegate?
+    
+    let userService = CurrentUserService()
+    let contentView = LogInView()
+    
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
-    
-    let contentView = LogInView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,8 +60,10 @@ class LogInViewController: UIViewController {
     private func setUp() {
         
         view.addSubview(scrollView)
-        contentView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubview(contentView)
+        
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
                                      scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
@@ -74,11 +78,29 @@ class LogInViewController: UIViewController {
         
     }
     
-    @objc func pushInProfile() {
+    @objc private func pushInProfile() {
         
-        let profileViewController = ProfileViewController()
-        navigationController?.pushViewController(profileViewController, animated: true)
-        
+#if DEBUG
+        let userService = TestUserService()
+#else
+        let userService = CurrentUserService()
+#endif
+        let profileViewController = ProfileViewController(userService: userService, login: contentView.numberField.text!)
+        if delegate?.checkLogin(login: contentView.numberField.text!, password: contentView.passwordField.text!) == true {
+            self.navigationController?.pushViewController(profileViewController, animated: true)
+        } else {
+            
+            let alert = UIAlertController(title: "Notice", message: "Username or password incorrect", preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { action in
+                print("Retry username")
+            }))
+            present(alert, animated: true)
+        }
     }
     
+}
+
+protocol LoginViewControllerDelegate: AnyObject {
+    func checkLogin(login: String, password: String) -> Bool
 }
