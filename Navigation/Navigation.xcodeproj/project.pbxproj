@@ -18,10 +18,10 @@
 		A669A12F28B4E51A00D48A88 /* LoginInspector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A669A12E28B4E51900D48A88 /* LoginInspector.swift */; };
 		A669A13228B4E5B500D48A88 /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A669A13128B4E5B500D48A88 /* Checker.swift */; };
 		A669A13428B4E85B00D48A88 /* LoginFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A669A13328B4E85B00D48A88 /* LoginFactory.swift */; };
+		A67D9D5F28B8B72600D13E0F /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = A67D9D5E28B8B72600D13E0F /* iOSIntPackage */; };
 		A6BF896228A24AB30099BCC3 /* StorageService.h in Headers */ = {isa = PBXBuildFile; fileRef = A6BF896128A24AB30099BCC3 /* StorageService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A6BF896528A24AB30099BCC3 /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6BF895F28A24AB30099BCC3 /* StorageService.framework */; };
 		A6BF896628A24AB30099BCC3 /* StorageService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A6BF895F28A24AB30099BCC3 /* StorageService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A6BF896E28A2636D0099BCC3 /* iOSIntPackage in Frameworks */ = {isa = PBXBuildFile; productRef = A6BF896D28A2636D0099BCC3 /* iOSIntPackage */; };
 		A6CB802E287F5F4C00A240F8 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6CB802D287F5F4C00A240F8 /* PostTableViewCell.swift */; };
 		A6E9F2C62836DE56007BBFA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E9F2C52836DE56007BBFA0 /* AppDelegate.swift */; };
 		A6E9F2CF2836DE58007BBFA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6E9F2CE2836DE58007BBFA0 /* Assets.xcassets */; };
@@ -29,6 +29,10 @@
 		A6E9F2DC2836E0DE007BBFA0 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E9F2DB2836E0DE007BBFA0 /* FeedViewController.swift */; };
 		A6E9F2DE2836E122007BBFA0 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E9F2DD2836E122007BBFA0 /* PostViewController.swift */; };
 		A6E9F2E02836E157007BBFA0 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E9F2DF2836E157007BBFA0 /* InfoViewController.swift */; };
+		A6F59E3C28B76EF6001C7F2D /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F59E3B28B76EF6001C7F2D /* PhotosTableViewCell.swift */; };
+		A6F59E3E28B77162001C7F2D /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F59E3D28B77162001C7F2D /* Photos.swift */; };
+		A6F59E4128B7722B001C7F2D /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F59E4028B7722B001C7F2D /* PhotosCollectionViewCell.swift */; };
+		A6F59E4328B772E5001C7F2D /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F59E4228B772E5001C7F2D /* PhotosViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +83,10 @@
 		A6E9F2DD2836E122007BBFA0 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		A6E9F2DF2836E157007BBFA0 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		A6E9F2E12836E17E007BBFA0 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		A6F59E3B28B76EF6001C7F2D /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
+		A6F59E3D28B77162001C7F2D /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
+		A6F59E4028B7722B001C7F2D /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
+		A6F59E4228B772E5001C7F2D /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
 		C0E0D35C822D47241807BB4F /* Pods-Navigation.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Navigation.debug.xcconfig"; path = "Target Support Files/Pods-Navigation/Pods-Navigation.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -94,8 +102,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6BF896E28A2636D0099BCC3 /* iOSIntPackage in Frameworks */,
 				A6BF896528A24AB30099BCC3 /* StorageService.framework in Frameworks */,
+				A67D9D5F28B8B72600D13E0F /* iOSIntPackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -190,6 +198,7 @@
 		A6E9F2C42836DE56007BBFA0 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				A6F59E3F28B771C7001C7F2D /* Photos */,
 				A63212D228B376D500D87EAA /* Users */,
 				A64AC775286E2925002A318D /* Profile */,
 				A64AC77B2873150F002A318D /* Post */,
@@ -202,6 +211,17 @@
 				A6E9F2DF2836E157007BBFA0 /* InfoViewController.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		A6F59E3F28B771C7001C7F2D /* Photos */ = {
+			isa = PBXGroup;
+			children = (
+				A6F59E3D28B77162001C7F2D /* Photos.swift */,
+				A6F59E3B28B76EF6001C7F2D /* PhotosTableViewCell.swift */,
+				A6F59E4028B7722B001C7F2D /* PhotosCollectionViewCell.swift */,
+				A6F59E4228B772E5001C7F2D /* PhotosViewController.swift */,
+			);
+			path = Photos;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -254,7 +274,7 @@
 			);
 			name = Navigation;
 			packageProductDependencies = (
-				A6BF896D28A2636D0099BCC3 /* iOSIntPackage */,
+				A67D9D5E28B8B72600D13E0F /* iOSIntPackage */,
 			);
 			productName = Navigation;
 			productReference = A6E9F2C22836DE56007BBFA0 /* Navigation.app */;
@@ -288,7 +308,7 @@
 			);
 			mainGroup = A6E9F2B92836DE56007BBFA0;
 			packageReferences = (
-				A6BF896C28A2636D0099BCC3 /* XCRemoteSwiftPackageReference "iOSIntPackage" */,
+				A67D9D5D28B8B72600D13E0F /* XCRemoteSwiftPackageReference "iOSIntPackage" */,
 			);
 			productRefGroup = A6E9F2C32836DE56007BBFA0 /* Products */;
 			projectDirPath = "";
@@ -373,13 +393,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A6F59E3E28B77162001C7F2D /* Photos.swift in Sources */,
 				A6CB802E287F5F4C00A240F8 /* PostTableViewCell.swift in Sources */,
 				A669A13228B4E5B500D48A88 /* Checker.swift in Sources */,
 				A63212D428B3770100D87EAA /* CurrentUserService.swift in Sources */,
+				A6F59E3C28B76EF6001C7F2D /* PhotosTableViewCell.swift in Sources */,
 				A63979D92877016700A93E9A /* LogInView.swift in Sources */,
 				A64AC777286E2990002A318D /* ProfileHeaderView.swift in Sources */,
 				A669A12D28B4C1C700D48A88 /* Post.swift in Sources */,
 				A6E9F2DE2836E122007BBFA0 /* PostViewController.swift in Sources */,
+				A6F59E4328B772E5001C7F2D /* PhotosViewController.swift in Sources */,
 				A63979D72877013200A93E9A /* LogInViewController.swift in Sources */,
 				A669A12F28B4E51A00D48A88 /* LoginInspector.swift in Sources */,
 				A6E9F2C62836DE56007BBFA0 /* AppDelegate.swift in Sources */,
@@ -388,6 +411,7 @@
 				A63212D128B3759700D87EAA /* TestUserService.swift in Sources */,
 				A64AC779286E29AA002A318D /* ProfileViewController.swift in Sources */,
 				A669A13428B4E85B00D48A88 /* LoginFactory.swift in Sources */,
+				A6F59E4128B7722B001C7F2D /* PhotosCollectionViewCell.swift in Sources */,
 				A63212CF28B3746200D87EAA /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -685,20 +709,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A6BF896C28A2636D0099BCC3 /* XCRemoteSwiftPackageReference "iOSIntPackage" */ = {
+		A67D9D5D28B8B72600D13E0F /* XCRemoteSwiftPackageReference "iOSIntPackage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/TrueMax/iOSIntPackage";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				branch = imagepublisher;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		A6BF896D28A2636D0099BCC3 /* iOSIntPackage */ = {
+		A67D9D5E28B8B72600D13E0F /* iOSIntPackage */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A6BF896C28A2636D0099BCC3 /* XCRemoteSwiftPackageReference "iOSIntPackage" */;
+			package = A67D9D5D28B8B72600D13E0F /* XCRemoteSwiftPackageReference "iOSIntPackage" */;
 			productName = iOSIntPackage;
 		};
 /* End XCSwiftPackageProductDependency section */
