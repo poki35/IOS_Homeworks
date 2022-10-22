@@ -14,8 +14,8 @@ final class Checker {
 
      private init() {}
 
-     private let staticLogin = "55555"
-     private let staticPswd = "11111"
+     private let staticLogin = "5"
+     private let staticPswd = "1"
 
      func chckLogin(login: String, password: String) -> Bool {
          if staticLogin == login, staticPswd == password {
