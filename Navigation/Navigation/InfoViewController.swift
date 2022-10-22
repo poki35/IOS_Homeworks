@@ -8,33 +8,49 @@
 import UIKit
 
 class InfoViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.view.backgroundColor = .systemBrown
-        buttonTap()
+    
+    private lazy var button: CustomButton = {
+        let button = CustomButton(title: "Delete post", titleColor: .white)
+        button.backgroundColor = .systemBlue
+        return button
+        
+    }()
+    
+    private func buttonAction() {
+             button.action = { [weak self] in
+                 let alert = UIAlertController(title: "Notice", message: "Do you really want to delete your post?", preferredStyle: .alert)
+                 alert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { action in
+                     print("Нажато Delete")
+                 }))
+
+                 alert.addAction(UIAlertAction(title: "Cancel", style: .default, handler: { action in
+                     print("Нажато OK")
+                 }))
+                 self!.present(alert, animated: true)
+             }
+         }
+        
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            self.view.backgroundColor = .systemBrown
+            setUp()
+            buttonAction()
+            
+        }
+        
+    private func setUp() {
+        
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+            self.view.addSubview(self.button)
+            self.button.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -100).isActive = true
+            self.button.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20).isActive = true
+            self.button.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20).isActive = true
+             self.button.heightAnchor.constraint(equalToConstant: 50).isActive = true
+         }
+        
+        
         
     }
     
-    func buttonTap () {
-        let button = UIButton(frame: CGRect(x: 100, y: 100, width: 250, height: 50))
-        button.setTitle("Нажмите для нового поста", for: .normal)
-        button.center = view.center
-        button.layer.cornerRadius = 15
-        button.layer.masksToBounds = true
-        button.addTarget(self, action: #selector(tap), for: .touchUpInside)
-        view.addSubview(button)
-    }
-    
-    @objc func tap() {
-        
-        let alertVC = UIAlertController(title: "Новый пост", message: "Хотите сделать пост?", preferredStyle: .alert)
-        let leftAction = UIAlertAction(title: "Да", style: .default, handler: {(action:UIAlertAction!) in print("Yes")})
-        let rightAction = UIAlertAction(title: "Нет", style: .destructive, handler: {(action:UIAlertAction!) in print("No")})
-        alertVC.addAction(leftAction)
-        alertVC.addAction(rightAction)
-        
-        self.present(alertVC, animated: true, completion: nil)
-    }
-    
-}
 

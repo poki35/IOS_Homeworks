@@ -29,6 +29,9 @@
 		A6E9F2DC2836E0DE007BBFA0 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E9F2DB2836E0DE007BBFA0 /* FeedViewController.swift */; };
 		A6E9F2DE2836E122007BBFA0 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E9F2DD2836E122007BBFA0 /* PostViewController.swift */; };
 		A6E9F2E02836E157007BBFA0 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E9F2DF2836E157007BBFA0 /* InfoViewController.swift */; };
+		A6F489BD28D32FC000458C6D /* CustonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F489BC28D32FC000458C6D /* CustonButton.swift */; };
+		A6F489BF28D330E500458C6D /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F489BE28D330E500458C6D /* CustomTextField.swift */; };
+		A6F489C128D3386E00458C6D /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F489C028D3386E00458C6D /* Model.swift */; };
 		A6F59E3C28B76EF6001C7F2D /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F59E3B28B76EF6001C7F2D /* PhotosTableViewCell.swift */; };
 		A6F59E3E28B77162001C7F2D /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F59E3D28B77162001C7F2D /* Photos.swift */; };
 		A6F59E4128B7722B001C7F2D /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F59E4028B7722B001C7F2D /* PhotosCollectionViewCell.swift */; };
@@ -83,6 +86,9 @@
 		A6E9F2DD2836E122007BBFA0 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		A6E9F2DF2836E157007BBFA0 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		A6E9F2E12836E17E007BBFA0 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		A6F489BC28D32FC000458C6D /* CustonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustonButton.swift; sourceTree = "<group>"; };
+		A6F489BE28D330E500458C6D /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		A6F489C028D3386E00458C6D /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		A6F59E3B28B76EF6001C7F2D /* PhotosTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosTableViewCell.swift; sourceTree = "<group>"; };
 		A6F59E3D28B77162001C7F2D /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		A6F59E4028B7722B001C7F2D /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -198,6 +204,7 @@
 		A6E9F2C42836DE56007BBFA0 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				A6F489BB28D32FA700458C6D /* Buttons */,
 				A6F59E3F28B771C7001C7F2D /* Photos */,
 				A63212D228B376D500D87EAA /* Users */,
 				A64AC775286E2925002A318D /* Profile */,
@@ -211,6 +218,16 @@
 				A6E9F2DF2836E157007BBFA0 /* InfoViewController.swift */,
 			);
 			path = Navigation;
+			sourceTree = "<group>";
+		};
+		A6F489BB28D32FA700458C6D /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				A6F489BC28D32FC000458C6D /* CustonButton.swift */,
+				A6F489BE28D330E500458C6D /* CustomTextField.swift */,
+				A6F489C028D3386E00458C6D /* Model.swift */,
+			);
+			path = Buttons;
 			sourceTree = "<group>";
 		};
 		A6F59E3F28B771C7001C7F2D /* Photos */ = {
@@ -402,9 +419,12 @@
 				A64AC777286E2990002A318D /* ProfileHeaderView.swift in Sources */,
 				A669A12D28B4C1C700D48A88 /* Post.swift in Sources */,
 				A6E9F2DE2836E122007BBFA0 /* PostViewController.swift in Sources */,
+				A6F489BD28D32FC000458C6D /* CustonButton.swift in Sources */,
 				A6F59E4328B772E5001C7F2D /* PhotosViewController.swift in Sources */,
 				A63979D72877013200A93E9A /* LogInViewController.swift in Sources */,
+				A6F489BF28D330E500458C6D /* CustomTextField.swift in Sources */,
 				A669A12F28B4E51A00D48A88 /* LoginInspector.swift in Sources */,
+				A6F489C128D3386E00458C6D /* Model.swift in Sources */,
 				A6E9F2C62836DE56007BBFA0 /* AppDelegate.swift in Sources */,
 				A6E9F2E02836E157007BBFA0 /* InfoViewController.swift in Sources */,
 				A6E9F2DC2836E0DE007BBFA0 /* FeedViewController.swift in Sources */,
