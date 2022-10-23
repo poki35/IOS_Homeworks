@@ -10,10 +10,23 @@ import StorageService
 
 class FeedViewController: UIViewController {
     
-    private var post: Post?
+    var stackView = UIStackView()
     
-    private let model = Model()
-    private let stackView = UIStackView()
+    var postController: PostViewController?
+    var feedPost = Post?.self
+    let model: Model?
+    let coordinator: FeedCoordinator?
+    
+    init(model: Model, coordinator: FeedCoordinator) {
+        self.model = model
+        self.coordinator = coordinator
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     
     private lazy var button: CustomButton = {
         let button = CustomButton(title: "Кнопка 1", titleColor: .white)
@@ -76,12 +89,12 @@ class FeedViewController: UIViewController {
         
         checkButton.action = { [weak self] in
             guard let text = self?.customTextField.text, !text.isEmpty else { return }
-            self?.model.check(word: text)
+            self?.model!.check(word: text)
         }
     }
     
     @objc private func checkTheWord() {
-        if self.model.check {
+        if self.model!.check {
             checkResultLabel.text = "Верно"
             checkResultLabel.textColor = .white
             checkResultLabel.backgroundColor = .systemGreen
@@ -92,30 +105,30 @@ class FeedViewController: UIViewController {
         }
         
     }
-        
-        func configureStackView() {
-            view.addSubview(stackView)
-            stackView.axis = .vertical
-            stackView.distribution = .equalSpacing
-            stackView.spacing = 10
-            addButtonsToStackView()
-            setStackViewConstraints()
-        }
-        
-        func setStackViewConstraints() {
-            stackView.translatesAutoresizingMaskIntoConstraints = false
-            stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-            stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        }
-        
-        func addButtonsToStackView() {
-            stackView.addArrangedSubview(button)
-            stackView.addArrangedSubview(button1)
-            stackView.addArrangedSubview(customTextField)
-            stackView.addArrangedSubview(checkButton)
-            stackView.addArrangedSubview(checkResultLabel)
-        }
-        
+    
+    func configureStackView() {
+        view.addSubview(stackView)
+        stackView.axis = .vertical
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 10
+        addButtonsToStackView()
+        setStackViewConstraints()
     }
     
+    func setStackViewConstraints() {
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+    }
+    
+    func addButtonsToStackView() {
+        stackView.addArrangedSubview(button)
+        stackView.addArrangedSubview(button1)
+        stackView.addArrangedSubview(customTextField)
+        stackView.addArrangedSubview(checkButton)
+        stackView.addArrangedSubview(checkResultLabel)
+    }
+    
+}
+
 

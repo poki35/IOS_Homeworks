@@ -12,17 +12,9 @@ import SnapKit
 
 class ProfileViewController: UIViewController {
     
-    var userService: UserService
-    var login: String
-    
-    init(userService: UserService, login: String) {
-        self.userService = userService
-        self.login = login
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    private let viewModel: ProfileViewOutput
+    private var postArray: [Post] {
+        viewModel.posts
     }
     
     private lazy var tableView: UITableView = {
@@ -34,7 +26,14 @@ class ProfileViewController: UIViewController {
         return tableView
     }()
     
-    let postArray = Post.newPost()
+    init(viewModel: ProfileViewOutput) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -119,8 +118,7 @@ extension ProfileViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 0 {
-            let photosViewController = PhotosViewController()
-            navigationController?.pushViewController(photosViewController, animated: true)
+            viewModel.showPhotos()
         }
         
     }
