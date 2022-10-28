@@ -11,8 +11,11 @@ import iOSIntPackage
 
 class PhotosViewController: UIViewController {
     
-    private var imagePublisherFacade: ImagePublisherFacade?
-    private lazy var photos: [UIImage] = []
+    private lazy var photos = userImages
+
+
+        private var timer: Timer?
+        private var countInMilliseconds: Double = 0
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -26,20 +29,45 @@ class PhotosViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        imagePublisherFacade = ImagePublisherFacade()
-        imagePublisherFacade?.addImagesWithTimer(time: 0.5, repeat: 15)
-        
+        startTimer()
+        ImageProcessor().processImagesOnThread(sourceImages: photos, filter: .fade, qos: .background) { filtres in
+                    self.photos.removeAll()
+                    for photo in filtres {
+                        guard let photo = photo else { return }
+                        self.photos.append(UIImage(cgImage: photo))
+                    }
+                    DispatchQueue.main.async {
+                        self.stopTimer()
+                        self.collectionView.reloadData()
+                    }
+                }
+            }
+
+            private func startTimer(){
+                timer = Timer.scheduledTimer(timeInterval: 0.01,
+                                             target: self,
+                                             selector: #selector(counter),
+                                             userInfo: nil,
+                                             repeats: true)
+            }
+
+            private func stopTimer(){
+                timer?.invalidate()
+                print("\(countInMilliseconds) seconds")
+            }
+
+            @objc private func counter() {
+                countInMilliseconds += 0.01
         setUp()
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        imagePublisherFacade?.subscribe(self)
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         navigationController?.navigationBar.isHidden = true
-        imagePublisherFacade?.removeSubscription(for: self)
-        imagePublisherFacade?.rechargeImageLibrary()
+       
     }
     
     private func setUp() {
@@ -96,9 +124,4 @@ extension PhotosViewController: UICollectionViewDataSource {
     }
 }
 
-extension PhotosViewController: ImageLibrarySubscriber {
-    func receive(images: [UIImage]) {
-        photos = images
-        collectionView.reloadData()
-    }
-}
+
