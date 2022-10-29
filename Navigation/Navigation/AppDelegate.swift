@@ -17,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
+        let appConfiguration: AppConfiguration = .peoples
+        NetworkManager.request(for: appConfiguration)
+        
         window = UIWindow()
         window?.rootViewController = mainCoordinator.startApplication()
         window?.makeKeyAndVisible()

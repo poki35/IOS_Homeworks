@@ -12,6 +12,7 @@
 		A63212D428B3770100D87EAA /* CurrentUserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63212D328B3770100D87EAA /* CurrentUserService.swift */; };
 		A63979D72877013200A93E9A /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63979D62877013200A93E9A /* LogInViewController.swift */; };
 		A63979D92877016700A93E9A /* LogInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63979D82877016700A93E9A /* LogInView.swift */; };
+		A642BBFD290D8D1B00DBD5A4 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A642BBFC290D8D1B00DBD5A4 /* NetworkManager.swift */; };
 		A64AC777286E2990002A318D /* ProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64AC776286E2990002A318D /* ProfileHeaderView.swift */; };
 		A64AC779286E29AA002A318D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A64AC778286E29AA002A318D /* ProfileViewController.swift */; };
 		A669A12D28B4C1C700D48A88 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E9F2E12836E17E007BBFA0 /* Post.swift */; };
@@ -75,6 +76,7 @@
 		A63212D328B3770100D87EAA /* CurrentUserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentUserService.swift; sourceTree = "<group>"; };
 		A63979D62877013200A93E9A /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		A63979D82877016700A93E9A /* LogInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInView.swift; sourceTree = "<group>"; };
+		A642BBFC290D8D1B00DBD5A4 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		A64AC776286E2990002A318D /* ProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileHeaderView.swift; sourceTree = "<group>"; };
 		A64AC778286E29AA002A318D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		A669A12E28B4E51900D48A88 /* LoginInspector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInspector.swift; sourceTree = "<group>"; };
@@ -154,6 +156,14 @@
 			path = Users;
 			sourceTree = "<group>";
 		};
+		A642BBFB290D8CD600DBD5A4 /* URL */ = {
+			isa = PBXGroup;
+			children = (
+				A642BBFC290D8D1B00DBD5A4 /* NetworkManager.swift */,
+			);
+			path = URL;
+			sourceTree = "<group>";
+		};
 		A64AC775286E2925002A318D /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +226,7 @@
 		A6E9F2C42836DE56007BBFA0 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				A642BBFB290D8CD600DBD5A4 /* URL */,
 				A6F489BB28D32FA700458C6D /* Buttons */,
 				A6F59E3F28B771C7001C7F2D /* Photos */,
 				A63212D228B376D500D87EAA /* Users */,
@@ -456,6 +467,7 @@
 				A669A12D28B4C1C700D48A88 /* Post.swift in Sources */,
 				A6E9F2DE2836E122007BBFA0 /* PostViewController.swift in Sources */,
 				A6F489BD28D32FC000458C6D /* CustonButton.swift in Sources */,
+				A642BBFD290D8D1B00DBD5A4 /* NetworkManager.swift in Sources */,
 				A6F59E4328B772E5001C7F2D /* PhotosViewController.swift in Sources */,
 				A63979D72877013200A93E9A /* LogInViewController.swift in Sources */,
 				A6F489BF28D330E500458C6D /* CustomTextField.swift in Sources */,
