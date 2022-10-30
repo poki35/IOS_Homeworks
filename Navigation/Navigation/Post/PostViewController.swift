@@ -19,9 +19,8 @@ class PostViewController: UIViewController {
     }
     
     @objc func tap() {
-        let vcContr = InfoViewController()
-        vcContr.modalPresentationStyle = .automatic
-        self.present(vcContr, animated: true)
+        let coordinator = InfoCoordinator()
+        coordinator.showDetails(navigationController: navigationController, coordinator: coordinator)
     }
     
 }

@@ -10,10 +10,13 @@ import UIKit
 
 class LogInViewController: UIViewController {
     
-    weak var delegate: LoginViewControllerDelegate?
+    var delegate: LoginViewControllerDelegate?
+    var isAuthorized: Bool = false
     
     let userService = CurrentUserService()
     let contentView = LogInView()
+    
+    weak var coordinator: MainCoordinatorProtocol?
     
     let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
@@ -80,23 +83,10 @@ class LogInViewController: UIViewController {
     
     @objc private func pushInProfile() {
         
-#if DEBUG
-        let userService = TestUserService()
-#else
-        let userService = CurrentUserService()
-#endif
-        let profileViewController = ProfileViewController(userService: userService, login: contentView.numberField.text!)
-        if delegate?.checkLogin(login: contentView.numberField.text!, password: contentView.passwordField.text!) == true {
-            self.navigationController?.pushViewController(profileViewController, animated: true)
-        } else {
-            
-            let alert = UIAlertController(title: "Notice", message: "Username or password incorrect", preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { action in
-                print("Retry username")
-            }))
-            present(alert, animated: true)
-        }
+        let isSuccess = delegate?.checkLogin(login: contentView.numberField.text!, password: contentView.passwordField.text!) == true
+        
+        coordinator?.completeLoginProcess(isSuccess: isSuccess)
+        
     }
     
 }
