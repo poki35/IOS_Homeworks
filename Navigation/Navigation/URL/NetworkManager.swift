@@ -18,49 +18,22 @@ struct NetworkManager {
     
     static func request(for configuration: AppConfiguration) {
         
-        switch configuration {
-        case .starships:
-            if let url = URL(string: configuration.rawValue) {
-                let task = URLSession.shared.dataTask(with: url) { data, response, error in
-                    if let data = data {
-                        print("data - \(String(data: data, encoding: .utf8) ?? "")")
-                    }
-                    if let resonse1 = response as? HTTPURLResponse {
-                        print("response -",resonse1.allHeaderFields, resonse1.statusCode)
-                    }
-                    print("error - \(error?.localizedDescription ?? ""), \(error.debugDescription)")
-                }
-                task.resume()
-            }
+        if let url = URL(string: configuration.rawValue) {
             
-        case .planet:
-            if let url = URL(string: configuration.rawValue) {
-                let task = URLSession.shared.dataTask(with: url) { data, response, error in
-                    if let data = data {
-                        print("data - \(String(data: data, encoding: .utf8) ?? "")")
-                    }
-                    if let resonse1 = response as? HTTPURLResponse {
-                        print("response -",resonse1.allHeaderFields, resonse1.statusCode)
-                    }
-                    print("error - \(error?.localizedDescription ?? ""), \(error.debugDescription)")
+            let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                
+                if let data = data {
+                    print("data - \(String(data: data, encoding: .utf8) ?? "")")
                 }
-                task.resume()
-            }
-            
-        case .peoples:
-            if let url = URL(string: configuration.rawValue) {
-                let task = URLSession.shared.dataTask(with: url) { data, response, error in
-                    if let data = data {
-                        print("data - \(String(data: data, encoding: .utf8) ?? "")")
-                    }
-                    if let resonse1 = response as? HTTPURLResponse {
-                        print("response -",resonse1.allHeaderFields, resonse1.statusCode)
-                    }
-                    print("error - \(error?.localizedDescription ?? ""), \(error.debugDescription)")
+                
+                if let resonse1 = response as? HTTPURLResponse {
+                    print("response -",resonse1.allHeaderFields, resonse1.statusCode)
                 }
-                task.resume()
+                print("error - \(error?.localizedDescription ?? ""), \(error.debugDescription)")
             }
+            task.resume()
         }
         
     }
+    
 }
